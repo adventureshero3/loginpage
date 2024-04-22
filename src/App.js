@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './components/HomePage'; 
+import UserAction from './components/UserAction'; 
+import DoctorAction from './components/DoctorAction'; 
+import UserLoginForm from './components/UserLoginForm'; 
+import DoctorLoginForm from './components/DoctorLoginForm'; 
+import UserRegistrationForm from './components/UserRegistrationForm';
+import DoctorRegistrationForm from './components/DoctorRegistrationForm';
+import './App.css'
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/user" element={<UserAction />} />
+        <Route path="/doctor" element={<DoctorAction />} />
+        <Route path="/user/login" element={<UserLoginForm />} />
+        <Route path="/doctor/login" element={<DoctorLoginForm />} />
+        <Route path="/user/signup" element={<UserRegistrationForm />} />
+        <Route path="/doctor/signup" element={<DoctorRegistrationForm />} />
+      </Routes>
+    </Router>
   );
 }
 
